@@ -142,7 +142,7 @@ public class BoardDrawing extends JPanel {
             g2d.drawString(message, (int) cell.getCenterX(), (int) cell.getCenterY());
 
             /**
-             * draw player position
+             * DIBUJAR LA POSICIÓN DEL JUGADOR
              *
              * @param pl
              *
@@ -165,7 +165,7 @@ public class BoardDrawing extends JPanel {
         }
 
         /**
-         * Drawing snakes and ladders
+         * DIBUJAR SERPIENTES Y ESCALERAS
          *
          * @param port
          *
@@ -200,7 +200,7 @@ public class BoardDrawing extends JPanel {
     }
 
     /**
-     * CAMBIA COLOR
+     * CAMBIAR COLOR
      *
      * @param g2d
      * @param pl
@@ -218,7 +218,7 @@ public class BoardDrawing extends JPanel {
     }
 
     /**
-     * ensurePlayerPosition
+     * ASEGURAR LA POSICIÓN DEL JUGADOR
      *
      * @param pnos
      * @return 
