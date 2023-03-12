@@ -22,10 +22,13 @@ public class WelcomeScreen extends JPanel{
 	}
 	
 	public void quitButtonActionListener(){
-		if(JOptionPane.showConfirmDialog(this, "Are you sure?") == JOptionPane.OK_OPTION)
+		if(JOptionPane.showConfirmDialog(this, ARE_YOU_SURE) == JOptionPane.OK_OPTION)
 	        System.exit(0);
 	}
-	
+        private static final String ARE_YOU_SURE = "Are you sure?";
+	private static final String NEW__GAME = "New Game";
+        private static final String QUIT = "Quit";
+        
 	public void goButtonActionListener(){
 		mw.showCard("Two");
 	}
@@ -39,8 +42,8 @@ public class WelcomeScreen extends JPanel{
 		
 		//add formatting here
 		
-		go = new JButton("New Game");
-		quit = new JButton("Quit");	
+		go = new JButton(NEW__GAME);
+		quit = new JButton(QUIT);	
 		
 		go.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent event){
@@ -57,5 +60,7 @@ public class WelcomeScreen extends JPanel{
 		add(go);
 		add(quit);
 	}
+    
+    
 
 }
