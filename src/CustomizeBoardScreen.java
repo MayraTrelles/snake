@@ -1,6 +1,5 @@
 
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -8,29 +7,34 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 //needs massive improvements
-
 /**
+ * Clase CustomizeBoardScreen
  *
- * @author el_ca
+ * Contiene informacion de dibujar en la pantalla
+ *
+ * @author Mayra
+ * @version 1.0
  */
 public class CustomizeBoardScreen extends JPanel {
 
+//Atributos
+    /**
+     * go quit mw
+     */
     JButton go;
     JButton quit;
     MainWindow mw;
 
-    /**
-     *
-     */
+    private static final String TWO = "Two";
+
     public void quitButtonActionListener() {
-        mw.showCard("Two");
+        mw.showCard(TWO);
     }
 
-    /**
-     *
-     */
+    private static final String FOUR = "Four";
+
     public void goButtonActionListener() {
-        mw.showCard("Four");
+        mw.showCard(FOUR);
     }
 
     /**
@@ -50,16 +54,12 @@ public class CustomizeBoardScreen extends JPanel {
         go = new JButton("Start Game");
         quit = new JButton("Back");
 
-        go.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent event) {
-                goButtonActionListener();
-            }
+        go.addActionListener((ActionEvent event) -> {
+            goButtonActionListener();
         });
 
-        quit.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent event) {
-                quitButtonActionListener();
-            }
+        quit.addActionListener((ActionEvent event) -> {
+            quitButtonActionListener();
         });
 
         add(go);

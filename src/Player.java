@@ -2,12 +2,16 @@
 import java.awt.Color;
 
 /**
+ * Clase Player
  *
- * @author el_ca
+ * CLASE jugador
+ *
+ * @author Mayra
+ * @version 1.0
  */
 public class Player {
 
-    private String name;
+    private final String name;
     private int playerPosn;
     private int playerScore;
     private Color playerColor;
@@ -23,7 +27,7 @@ public class Player {
 
     /**
      *
-     * @return
+     * @return playerPosn
      */
     public int getPosition() {
         return playerPosn;
@@ -31,7 +35,7 @@ public class Player {
 
     /**
      *
-     * @return
+     * @return name
      */
     public String getName() {
         return name;
@@ -63,7 +67,7 @@ public class Player {
 
     /**
      *
-     * @return
+     * @return playerColor
      */
     public Color getPlayerColor() {
         return playerColor;
@@ -79,7 +83,7 @@ public class Player {
 
     /**
      *
-     * @return
+     * @return playerScore
      */
     public int getPlayerScore() {
         return playerScore;

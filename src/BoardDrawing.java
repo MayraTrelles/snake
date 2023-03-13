@@ -22,10 +22,6 @@ public class BoardDrawing extends JPanel {
 
 //Atributos
     /**
-     * b
-     */
-    int b = 0;
-    /**
      * fila
      */
     int row = 8;
@@ -80,7 +76,7 @@ public class BoardDrawing extends JPanel {
         }
 
         int noPorts = 8;
-        bs.portals = new ArrayList<Portal>(noPorts);
+        bs.portals = new ArrayList<>(noPorts);
         for (int i = 0; i < noPorts; i++) {
             Portal temp = new Portal(row * col);
             bs.portals.add(temp);
@@ -94,12 +90,18 @@ public class BoardDrawing extends JPanel {
      * @param g
      *
      */
+    /**
+     * Dibuja componentes
+     *
+     * @param g
+     *
+     */
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        Graphics2D g2d = (Graphics2D) g;//.create();
+        Graphics2D g2d = (Graphics2D) g;
 
-        //Create cells
+        ///*Create cells*/
         int width = getWidth();
         int height = getHeight();
 
@@ -132,10 +134,18 @@ public class BoardDrawing extends JPanel {
             g2d.draw(cell);
         }
 
-        //Draw cells and numbers
-        //may have to modify program based on number of players
+        /**
+         * Draw cells and numbers may have to modify program based on number of players
+         */
         g2d.setColor(Color.BLUE);
-        int i = 0;                                // i is our visible numbering 
+        /**
+         * i is our visible numbering
+         */
+
+        int i = 0;
+        /**
+         * @param cells
+         */
         for (Rectangle cell : cells) {
 
             String message = "" + cellnos[i];
@@ -221,7 +231,7 @@ public class BoardDrawing extends JPanel {
      * ASEGURAR LA POSICIÓN DEL JUGADOR
      *
      * @param pnos
-     * @return 
+     * @return
      *
      */
     public String ensurePlayerPosition(int pnos) {

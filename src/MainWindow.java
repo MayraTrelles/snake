@@ -1,22 +1,22 @@
 
 import java.awt.CardLayout;
 import java.awt.FlowLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
+ * Clase MainWindow
  *
- * @author el_ca
+ * CLASE VENTANA PRINCIPAL
+ *
+ * @author Mayra
+ * @version 1.0
  */
 public class MainWindow extends JFrame {
 
     JPanel cards;
-    String cardDisplayed;
     CardLayout cl;
 
     WelcomeScreen s1;
@@ -32,10 +32,15 @@ public class MainWindow extends JFrame {
         cl.show(cards, cardName);
     }
 
-    /**
-     *
-     */
     public void resetAll() {
+        /**
+         * Constructor con 4 parametros
+         *
+         * @param s1 PlayerSelectScreen
+         * @param s2 PlayerSelectScreen
+         * @param s3 CustomizeBoardScreen
+         * @param s4 BoardScreen
+         */
         s1 = new WelcomeScreen(this);
         s2 = new PlayerSelectScreen(this);
         s3 = new CustomizeBoardScreen(this);
@@ -47,19 +52,16 @@ public class MainWindow extends JFrame {
         cards.add(s4, "Four");
     }
 
-    //maintaining board info
-
-    /**
-     *
-     */
     public void setBoard() {
+        /**
+         * Constructor con 4 parametros
+         *
+         * @param s4 BoardScreen
+         */
         s4 = new BoardScreen(this);
         cards.add(s4, "Four");
     }
 
-    /**
-     *
-     */
     public MainWindow() {
 
         setVisible(true);
@@ -70,23 +72,6 @@ public class MainWindow extends JFrame {
 
         s1 = new WelcomeScreen(this);
         s1.setTitle("Snake and Ladders");
-
-        /*
-		JPanel jp2 = new JPanel(new FlowLayout());
-		JLabel jl2 = new JLabel("Panel 2");
-		JButton jb2 = new JButton("Go ahead!");
-		jp2.add(jb2);
-		jb2.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent event){
-				cl.show(cards, "Three");
-			}
-		});
-		
-		jp2.setSize(this.getSize());
-		jp2.add(jl2);
-		jp2.setVisible(true);
-		
-         */
         JPanel jp5 = new JPanel(new FlowLayout());
         JLabel jl5 = new JLabel("Panel 5");
 
@@ -102,9 +87,6 @@ public class MainWindow extends JFrame {
         cards.add(s2, "Two");
         cards.add(s3, "Three");
         cards.add(s4, "Four");
-
-        //cards.add(jp2,"Two");
-        //cards.add(jp4,"Four");
         cards.add(jp5, "Five");
 
         cl = (CardLayout) (cards.getLayout());

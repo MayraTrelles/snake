@@ -10,13 +10,20 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
 //needs massive aesthetic rewrites
-
 /**
+ * Clase PlayerSelectScreen
  *
- * @author el_ca
+ * CLASE selección de ventana
+ *
+ * @author Mayra
+ * @version 1.0
  */
 public class PlayerSelectScreen extends JPanel {
 
+    //Atributos
+    /**
+     * go quit mw opt1 opt2 opt3
+     */
     JButton go;
     JButton quit;
     MainWindow mw;
@@ -25,25 +32,16 @@ public class PlayerSelectScreen extends JPanel {
     JRadioButton opt2;
     JRadioButton opt3;
 
-    /**
-     *
-     */
     public void quitButtonActionListener() {
         mw.showCard("One");
     }
 
-    /**
-     *
-     */
     public void goButtonActionListener() {
         playerOptions();
         mw.s4.setUpPlayers();
         mw.showCard("Three");
     }
 
-    /**
-     *
-     */
     public void playerOptions() {
         int m = 5;
         if (opt1.isSelected() == true) {
@@ -86,10 +84,8 @@ public class PlayerSelectScreen extends JPanel {
         add(opt1);
         add(opt2);
         add(opt3);
-        final ActionListener actionListener = new ActionListener() {
-            public void actionPerformed(ActionEvent event) {
-                playerOptions();
-            }
+        final ActionListener actionListener = (ActionEvent event) -> {
+            playerOptions();
         };
 
         opt1.addActionListener(actionListener);
@@ -100,16 +96,12 @@ public class PlayerSelectScreen extends JPanel {
         go = new JButton("Customize Board");
         quit = new JButton("Back");
 
-        go.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent event) {
-                goButtonActionListener();
-            }
+        go.addActionListener((ActionEvent event) -> {
+            goButtonActionListener();
         });
 
-        quit.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent event) {
-                quitButtonActionListener();
-            }
+        quit.addActionListener((ActionEvent event) -> {
+            quitButtonActionListener();
         });
 
         add(go);

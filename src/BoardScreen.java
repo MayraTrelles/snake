@@ -12,15 +12,20 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
+ * Clase BoardScreen
  *
- * @author el_ca
+ * Contiene informacion de pantalla
+ *
+ * @author Mayra
+ * @version 1.0
  */
 public class BoardScreen extends JPanel {
 
+//Atributos
     /**
-     *
+     * bd stats dieResults whichPlayer extraInfo maxPlayers currPlayer portals
+     * players x y success roll mw go quit
      */
-    int player = 0;
     BoardDrawing bd;
     JPanel stats;
     JLabel dieResults;
@@ -34,26 +39,20 @@ public class BoardScreen extends JPanel {
     int y;
     JLabel success;
     JButton roll;
-
     MainWindow mw;
-
     JButton go;
     JButton quit;
 
-    /**
-     *
-     */
     public void quitButtonActionListener() {
         if (JOptionPane.showConfirmDialog(this, "Are you sure?") == JOptionPane.OK_OPTION) {
             System.exit(0);
         }
     }
 
-    /**
-     *
-     */
+    private static final String TWO = "Two";
+
     public void goButtonActionListener() {
-        mw.showCard("Two");
+        mw.showCard(TWO);
         mw.resetAll();
     }
 
@@ -67,7 +66,7 @@ public class BoardScreen extends JPanel {
 
     /**
      *
-     * @return
+     * @return maxPlayers
      */
     public int returnMaxPlayers() {
         return maxPlayers;
@@ -81,9 +80,11 @@ public class BoardScreen extends JPanel {
         for (int i = 0; i < returnMaxPlayers(); i++) {
             players.add(new Player(i));
         }
-        //get and add player(s) names
-
-        //manual color entry - automate later
+        /**
+         * get and add player(s) names
+         *
+         * manual color entry - automate later
+         */
         if (0 < returnMaxPlayers()) {
             players.get(0).setPlayerColor(Color.green);
         }
@@ -109,12 +110,14 @@ public class BoardScreen extends JPanel {
         quit = new JButton("Quit");
 
         go.addActionListener(new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent event) {
                 goButtonActionListener();
             }
         });
 
         quit.addActionListener(new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent event) {
                 quitButtonActionListener();
             }
@@ -144,8 +147,6 @@ public class BoardScreen extends JPanel {
         stats.add(go);
         stats.add(quit);
 
-
-        
         whichPlayer = new JLabel();
         whichPlayer.setText(players.get(currPlayer).getName());
         stats.add(whichPlayer);
@@ -154,17 +155,19 @@ public class BoardScreen extends JPanel {
 
         success = new JLabel("");
 
-        //modify action listener to move between the n players 
-        //outside needs to know some amount of player data which may be got be asking and passing to inside
-        //no need to create separate stores outside
-        //may need more functions inside to communicate for this reason
+        /**
+         * modify action listener to move between the n players outside needs to
+         * know some amount of player data which may be got be asking and
+         * passing to inside no need to create separate stores outside may need
+         * more functions inside to communicate for this reason
+         */
         roll = new JButton("Roll the die!");
         roll.addActionListener(new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
                 Random die = new Random();
                 int a = die.nextInt(6) + 1;
                 dieResults.setText("You rolled a " + a);
-                player += a;
 
                 bd.setPlayer(a, currPlayer);
 
